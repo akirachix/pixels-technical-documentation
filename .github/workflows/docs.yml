@@ -48,16 +48,20 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     environment:
-      name: github-pages
+      name: ${{ github.ref == 'refs/heads/main' && 'github-pages' || 'preview' }}
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy
         id: deployment
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/deploy-pages@v4
+
+      - name: Skip deploy outside main
+        if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
+        run: echo 'Deploy runs only on main.'
