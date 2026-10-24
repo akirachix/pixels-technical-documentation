@@ -6,3 +6,6 @@ site/
 .DS_Store
 .idea/
 .vscode/
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
