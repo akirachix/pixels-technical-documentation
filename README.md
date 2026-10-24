@@ -1,81 +1,87 @@
 # MvuviGo Technical Documentation
 
-Technical documentation for the MvuviGo fisher safety and rescue coordination system, built with
-[MkDocs](https://www.mkdocs.org/) and
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+This repository contains the comprehensive technical documentation and system architecture blueprints for the MvuviGo platform. 
 
-## Status
+## Project Structure
 
-This repository contains the initial documentation scaffold. Detailed
-technical content will be added and verified against the relevant source
-repositories and project references.
+This project isolates core documentation content and system configurations within the `docs` directory:
 
-## Documentation structure
-
-| Directory | Purpose |
-| --- | --- |
-| `docs/overview/` | System purpose, features, technology stack and implementation status |
-| `docs/architecture/` | System architecture, components and data flow |
-| `docs/repository/` | Backend and frontend repository layouts |
-| `docs/database/` | Database design and key entities |
-| `docs/api/` | Backend API reference |
-| `docs/frontend/` | Web dashboard architecture and components |
-| `docs/workflows/` | Operational workflows |
-| `docs/communication/` | Field communication, hardware and SMS integration |
-| `docs/setup/` | Development environment setup |
-| `docs/testing/` | Testing guidance and troubleshooting |
-| `docs/security/` | Security controls and reliability |
-| `docs/deployment/` | Deployment and contribution workflow |
-
-## Prerequisites
-
-- Python 3.10 or later
-- pip
-
-## Local development
-
-Create and activate a virtual environment:
-
-    python3 -m venv .venv
-    source .venv/bin/activate
-
-Install dependencies:
-
-    python -m pip install -r requirements.txt
-
-Run the local preview:
-
-    mkdocs serve
-
-Build the documentation:
-
-    mkdocs build --strict
-
-The generated site is written to `site/`, which is excluded from version control.
-
-## Publishing
-
-1. In the repository, open **Settings → Pages** and set **Source** to **GitHub Actions**.
-2. Set `repo_url` and `site_url` in `mkdocs.yml`.
-3. Merge to `main`. The workflow builds with `--strict` and deploys to GitHub Pages.
-
-## Contribution workflow
-
-1. Create a feature branch.
-2. Make a focused documentation change.
-3. Run `mkdocs build --strict`.
-4. Review changes with `git diff --check`.
-5. Commit and push the feature branch.
-6. Open a pull request for review.
-
-## Quality expectations
-
-- Keep navigation entries aligned with existing documentation pages.
-- Verify technical claims against authoritative project sources.
-- Never include credentials, access tokens, or other secrets.
-- Keep changes focused and reviewable.
-- Ensure the strict documentation build passes before opening a pull request.
-
-## Claude skill
-
-`.claude/skills/mvuvigo-docs/SKILL.md` gives Claude Code the conventions for this repo.
+```text
+MVUVIGO_TECHNICAL_DOCUMENTATION/
+project-root/
+├── .github/
+│   └── workflows/
+│       └── docs.yml
+├── docs/
+│   ├── .vitepress/
+│   │   ├── theme/
+│   │   │   └── index.ts
+│   │   ├── custom.css
+│   │   └── config.mts
+│   ├── api/
+│   │   ├── authentication.md
+│   │   ├── endpoints.md
+│   │   ├── error-codes.md
+│   │   ├── index.md
+│   │   └── schemas.md
+│   ├── architecture/
+│   │   ├── architecture-principles.md
+│   │   ├── component-diagram.md
+│   │   ├── data-flow.md
+│   │   ├── index.md
+│   │   └── system-architecture.md
+│   ├── communication/
+│   │   ├── gps-tracking.md
+│   │   ├── index.md
+│   │   ├── lora-relay-and-mesh.md
+│   │   ├── rfid-and-station-hardware.md
+│   │   └── sms-integration.md
+│   ├── database/
+│   │   ├── er-diagram.md
+│   │   ├── index.md
+│   │   └── key-entities.md
+│   ├── deployment/
+│   │   ├── deployment.md
+│   │   └── index.md
+│   ├── frontend/
+│   │   ├── architecture.md
+│   │   ├── index.md
+│   │   ├── maps-and-real-time.md
+│   │   ├── pages-and-components.md
+│   │   └── state-management.md
+│   ├── overview/
+│   │   ├── key-features.md
+│   │   ├── product-definition.md
+│   │   ├── scope-and-status.md
+│   │   ├── system-overview.md
+│   │   └── technology-stack.md
+│   ├── public/
+│   │   └── images/
+│   ├── security/
+│   │   ├── access-control.md
+│   │   ├── data-protection.md
+│   │   ├── failure-handling.md
+│   │   ├── index.md
+│   │   └── logging-and-monitoring.md
+│   ├── setup/
+│   │   ├── database-setup.md
+│   │   ├── environment-variables.md
+│   │   ├── installation.md
+│   │   ├── prerequisites.md
+│   │   └── run-locally.md
+│   ├── testing/
+│   │   ├── backend-tests.md
+│   │   ├── common-issues.md
+│   │   ├── frontend-build.md
+│   │   ├── index.md
+│   │   └── postman-examples.md
+│   ├── workflows/
+│   │   ├── index.md
+│   │   ├── rescue-coordination.md
+│   │   ├── sos-alert-flow.md
+│   │   └── trip-tracking.md
+│   └── index.md
+├── .gitignore
+├── package-lock.json
+├── package.json
+└── README.md
