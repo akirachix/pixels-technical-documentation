@@ -2,20 +2,16 @@
 
 Protecting the personal information of fishers and the security of the station operators is a core requirement.
 
-## Password Hashing
-We never store plain-text passwords. 
-* When an operator creates an account, the FastAPI backend uses **Argon2** to hash the password with a unique salt.
-* Argon2 is memory-hard and resistant to GPU brute-force attacks.
+## 1. Sensitive Data
+The system stores Personally Identifiable Information (PII) such as fisher names, phone numbers, and live GPS coordinates. This data is strictly protected.
 
-## OTP Hashing
-Verification codes (OTP) are short (6 digits) and easy to guess if intercepted.
-* The backend does not store the plain OTP in memory.
-* It stores a SHA-256 hash of the OTP. When the user enters the code, the backend hashes it and compares the hashes using `hmac.compare_digest` to prevent timing attacks.
+## 2. Encryption
+*   **Encryption in Transit:** All communication between the Next.js frontend and the FastAPI backend is encrypted using **HTTPS/TLS**. MQTT traffic between the hardware devices and the Node.js server is encrypted using **MQTTS** (TLS).
 
-## Database Security
-* **Parameterized Queries:** Both the FastAPI backend (via SQLAlchemy) and the Node.js IoT server use parameterized queries. This prevents SQL Injection attacks.
-* **Environment Variables:** Database URLs, SMTP passwords, and JWT Private Keys are never hardcoded in the source code. They are stored in `.env` files (locally) and config vars (in production).
+## 3. Secret Management
+*   **Environment Variables:** We do not hardcode secrets in the source code. Database URLs, SMTP passwords, JWT private keys, and MQTT credentials are loaded from `.env` files locally and environment config vars in production.
+*   **Key Storage:** The JWT RS256 private key is stored as a PEM file locally or as a Heroku config var in production.
 
-## Transport Security
-* In production (Heroku), all communication between the web dashboard, the FastAPI backend, and the Node.js server is forced over **HTTPS**.
-* MQTT communication between the hardware devices and the Node.js server uses **TLS/SSL** (MQTTS) for encryption.
+## 4. Database Protection
+*   **SQL Injection Prevention:** Both the FastAPI backend (using SQLAlchemy ORM) and the Node.js server (using parameterized queries) prevent SQL injection. User input is never concatenated directly into SQL strings.
+*   **Database Isolation:** The database is not exposed to the public internet. It only accepts connections from the backend servers on the private network.

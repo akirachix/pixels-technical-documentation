@@ -4,31 +4,26 @@ The MvuviGo platform handles life-critical data. The security architecture is de
 
 ## System Security Zones
 
-The platform is divided into three distinct security zones to prevent unauthorized access and contain potential breaches.
-
 ![MvuviGo Secure System Architecture Diagram](/images/ssad.png)
 
-### 1. Perimeter Layer
-*   **Devices (Fisher & Responders):** Communicate via secure channels (LoRa and SMS). The SMS Gateway and MQTT Broker act as the first point of entry.
-*   **Web Application Firewall (Cloudflare):** Filters malicious traffic before it reaches the API Gateway.
-*   **API Gateway:** Handles Rate Limiting and Token Validation. It ensures no unauthenticated request reaches the application logic.
+The platform is divided into three distinct security zones to prevent unauthorized access and contain potential breaches:
 
-### 2. Application Zone
-*   **FastAPI Backend:** Hosts the core business logic (Fishers, Alerts, Locations).
-*   **Node.js IoT Server:** Handles high-throughput MQTT messages.
-*   **Auth Service:** Strictly isolates login and JWT generation.
-*   **Background Workers:** Handle asynchronous tasks like sending SMS alerts without blocking the main API.
+1. **Perimeter Layer:** Handles public internet traffic. A Web Application Firewall and API Gateway protect the backend. Unauthenticated traffic is dropped here.
+2. **Application Zone:** Contains the FastAPI backend, Node.js IoT server, and Auth Services. 
+3. **Data Zone:** A private subnet where the PostgreSQL database resides. It is completely inaccessible from the public internet and only accepts connections from the Application Zone.
 
-### 3. Data Zone
-*   **Primary Database (PostgreSQL):** Hosted in a private subnet, inaccessible from the public internet.
-*   **Read Replicas:** Used for heavy dashboard queries so that real-time SOS inserts are never slowed down.
-*   **Data Sync:** Ensures high availability and disaster recovery.
+## Incident Handling & Monitoring
+Because MvuviGo is a safety-critical system, detecting and responding to incidents is a core requirement.
 
-This architecture ensures that even if an attacker breaches the perimeter, they cannot directly access the database. All traffic must pass through the API Gateway and authentication layers.
+*   **Logging:** Both FastAPI and Node.js use structured JSON logging. Every request, authentication attempt, and MQTT payload is logged with a timestamp and IP address.
+*   **Detection:** The system monitors for unusual patterns, such as repeated `401 Unauthorized` responses (indicating a brute-force attack) or invalid MQTT payloads.
+*   **Response:** If the database goes offline, the API returns a `503 Service Unavailable` to protect data integrity. If an SOS alert fails to process, it is logged as a `CRITICAL` incident for immediate manual review.
+*   **Credential Rotation:** All database passwords, SMTP credentials, and JWT private keys are stored in environment variables (`.env` or Heroku Config Vars). They can be rotated without changing a single line of code.
+*   **Recovery:** Database backups are handled via the hosting provider (e.g., Heroku Postgres automated backups) to ensure data can be restored in the event of corruption.
 
 ## Explore Security Topics
 
-* **[Access Control](/security/access-control)** - How authentication, 2-step login, and JWT tokens work.
-* **[Data Protection](/security/data-protection)** - How sensitive data is hashed, stored, and secured in transit.
-* **[Logging and Monitoring](/security/logging-and-monitoring)** - How the system tracks events, errors, and SOS alerts.
-* **[Failure Handling](/security/failure-handling)** - How the system gracefully handles network drops, database failures, and device disconnects.
+* **[Access Control](/security/access-control)** - Authentication, JWT tokens, and session expiration.
+* **[Data Protection](/security/data-protection)** - Password hashing, encryption in transit, and database protection.
+* **[Application Security](/security/application-security)** - Rate limiting, CORS, input validation, and integration security.
+* **[Failure Handling](/security/failure-handling)** - How the system gracefully handles network drops and device disconnects.
