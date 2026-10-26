@@ -1,12 +1,12 @@
 # Deployment and Contribution
 
-This section covers how code gets from your laptop into the shared project, and how each part of MvuviGo is built and run.
+This section covers how code gets from your laptop into the shared project, and how each part of MvuviGo is built, deployed, monitored and recovered.
 
 ## In this section
 
 - [Branching and pull requests](./branching-and-prs.md): the branch and PR workflow every change follows.
 - [Code contribution](./code-contribution.md): coding standards and what reviewers check.
-- [Deployment](./deployment.md): building and running the backend, the dashboard and these docs.
+- [Deployment](./deployment.md): hosting, environments, configuration, release, monitoring and rollback for the backend, the dashboard and these docs.
 
 ## The repositories
 

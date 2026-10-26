@@ -14,8 +14,10 @@
 ## Map behaviour
 
 - Only **red SOS pins** open the popup, and the popup is anchored to the pin that was clicked.
-- Zoom buttons sit at the top-left of the map.
+- Zoom buttons sit on the map in the same place on the Dashboard, Live Incidents and Responders maps.
 - The responders page offers the same map in a **Map view**, plus a **List view** of the same people.
+- Pin colours: **red** for a distressed fisher, **green** for nearby fishers; amber pins also appear on the maps.
+
 
 ## Responders data
 
@@ -32,4 +34,9 @@ Responders are ordered by distance so the nearest appear first.
 
 ## Keeping the view current
 
-Operators need to see new alerts quickly. The page should reload alert data from the backend while it is open. When you change how often or how it refreshes, check that it does not reset the operator's zoom level or close an open popup.
+Operators need to see new alerts quickly. The page reloads alert data from the backend while it is open. When you change how often or how it refreshes, check that it does not reset the operator's zoom level or close an open popup.
+
+| Item | Value |
+| --- | --- |
+| Update mechanism | Periodic reload of the alerts endpoint (polling) |
+| Interval | To be confirmed |

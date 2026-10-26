@@ -59,6 +59,9 @@ export default defineConfig({
           { text: "Introduction", link: "/database/" },
           { text: "Key Entities", link: "/database/key-entities" },
           { text: "ER Diagram", link: "/database/er-diagram" },
+          { text: "Constraints", link: "/database/constraints" },
+          { text: "Migration Scripts", link: "/database/migrations" },
+          { text: "Seed Data", link: "/database/seed-data" },
         ],
       },
       {
@@ -88,9 +91,16 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/frontend/" },
           { text: "Architecture", link: "/frontend/architecture" },
+          { text: "Routing", link: "/frontend/routing" },
           { text: "Pages and Components", link: "/frontend/pages-and-components" },
           { text: "State Management", link: "/frontend/state-management" },
+          { text: "Forms and Validation", link: "/frontend/forms-and-validation" },
+          { text: "API Integration", link: "/frontend/api-integration" },
+          { text: "Authentication", link: "/frontend/authentication" },
           { text: "Maps and Real-time", link: "/frontend/maps-and-real-time" },
+          { text: "Build and Tooling", link: "/frontend/build-and-tooling" },
+          { text: "Testing", link: "/frontend/testing" },
+          { text: "Deployment", link: "/frontend/deployment" },
         ],
       },
       {
@@ -108,6 +118,10 @@ export default defineConfig({
         text: "Setup",
         collapsed: true,
         items: [
+          { text: "Deployment and Contribution", link: "/deployment/" },
+          { text: "Deployment", link: "/deployment/deployment" },
+          { text: "Branching and Pull Requests", link: "/deployment/branching-and-prs" },
+          { text: "Code Contribution", link: "/deployment/code-contribution" },
           { text: "Installation", link: "/setup/installation" },
           { text: "Run Locally", link: "/setup/run-locally" },
           { text: "Database Setup", link: "/setup/database-setup" },

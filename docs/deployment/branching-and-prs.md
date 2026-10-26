@@ -14,7 +14,6 @@
 git checkout develop
 git pull
 git checkout -b feature/<name>
-# make your changes, then
 git add .
 git commit -m "Describe what changed"
 git push -u origin feature/<name>

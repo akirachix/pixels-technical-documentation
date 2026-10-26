@@ -11,7 +11,7 @@ The dashboard uses plain React state and hooks. There is no global store: each p
 3. `lib/api.js` reads that key and adds the token to every request.
 4. The backend checks the token and returns data for the signed-in operator.
 
-Always use the `mvuvi_token` key and the shared client. Reading the token under a different name, or calling `fetch` directly, will make pages appear signed out.
+Always use the `mvuvi_token` key and the shared client. Reading the token under a different name, or calling `fetch` directly, will make pages appear signed out. Full details are in [Authentication](./authentication.md).
 
 ## Page data
 
@@ -22,6 +22,12 @@ Each page tracks three things:
 | `loading` | A spinner or skeleton |
 | `data` | The map, list or table |
 | `error` | A clear message |
+
+A page shows exactly one of these at a time. A fourth case, **empty** (the request worked but returned nothing), shows a friendly "nothing to show yet" message instead of a blank table.
+
+## Form state
+
+Forms keep their own field values, field errors and a `submitting` flag in local state. See [Forms and validation](./forms-and-validation.md).
 
 ## Error handling
 
