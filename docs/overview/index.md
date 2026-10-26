@@ -16,16 +16,14 @@ To shorten the gap between **a boat getting into trouble** and **someone nearby 
 
 ## What it does not do
 
-MvuviGo supports **human-led** rescue. It does not forecast weather, steer boats, protect a person in the water, replace formal search and rescue, or provide its own calling service. See [System Boundaries](overview/scope-and-status.md#system-boundaries).
+MvuviGo supports **human-led** rescue. It does not forecast weather, steer boats, protect a person in the water, replace formal search and rescue, or provide its own calling service. See [System Boundaries](./scope-and-status.md#system-boundaries).
 
 ## Where to start
 
 | If you want to... | Read |
 |---|---|
-| Understand the project in five minutes | [Overview](/overview/) |
-| Understand the problem, users and use cases | [Product Definition](/overview/product-definition) |
-| See how the parts fit together | [System Overview](/overview/system-overview) |
-| Know what is built, planned or excluded | [Scope and Status](/overview/scope-and-status) |
-| Look up a term | [Glossary](/overview/glossary) |
-
-
+| Understand the project in five minutes | [Overview](./index.md) |
+| Understand the problem, users and use cases | [Product Definition](./product-definition.md) |
+| See how the parts fit together | [System Overview](./system-overview.md) |
+| Know what is built, planned or excluded | [Scope and Status](./scope-and-status.md) |
+| Look up a term | [Glossary](./glossary.md) |
