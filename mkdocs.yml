@@ -1,0 +1,117 @@
+site_name: MvuviGo Technical Documentation
+site_description: Technical documentation for the MvuviGo fisher safety and rescue coordination system
+site_url: ""  
+repo_name: mvuvigo-technical-documentation
+repo_url: https://github.com/<org>/mvuvigo-technical-documentation
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - 1. Overview:
+      - Overview: overview/index.md
+      - System Overview: overview/system-overview.md
+      - Key Features: overview/key-features.md
+      - Technology Stack: overview/technology-stack.md
+      - Architecture Principles: overview/architecture-principles.md
+      - Scope and Status: overview/scope-and-status.md
+  - 2. Architecture:
+      - Overview: architecture/index.md
+      - System Architecture: architecture/system-architecture.md
+      - Component Diagram: architecture/component-diagram.md
+      - Data Flow: architecture/data-flow.md
+  - 3. Repository Structure:
+      - Overview: repository/index.md
+      - Backend Repo: repository/backend-repo.md
+      - Frontend Repo: repository/frontend-repo.md
+  - 4. Database Design:
+      - Overview: database/index.md
+      - ER Diagram: database/er-diagram.md
+      - Key Entities: database/key-entities.md
+  - 5. API Reference:
+      - Overview: api/index.md
+      - Authentication: api/authentication.md
+      - Endpoints: api/endpoints.md
+      - Schemas: api/schemas.md
+      - Error Codes: api/error-codes.md
+  - 6. Frontend:
+      - Overview: frontend/index.md
+      - Architecture: frontend/architecture.md
+      - Pages and Components: frontend/pages-and-components.md
+      - Maps and Real-time: frontend/maps-and-real-time.md
+      - State Management: frontend/state-management.md
+  - 7. Workflows:
+      - Overview: workflows/index.md
+      - SOS Alert Flow: workflows/sos-alert-flow.md
+      - Rescue Coordination: workflows/rescue-coordination.md
+      - Trip Tracking: workflows/trip-tracking.md
+  - 8. Communication Systems:
+      - Overview: communication/index.md
+      - LoRa Relay and Mesh: communication/lora-relay-and-mesh.md
+      - GPS Tracking: communication/gps-tracking.md
+      - RFID and Station Hardware: communication/rfid-and-station-hardware.md
+      - SMS Integration: communication/sms-integration.md
+  - 9. Setup and Configuration:
+      - Overview: setup/index.md
+      - Prerequisites: setup/prerequisites.md
+      - Environment Variables: setup/environment-variables.md
+      - Installation: setup/installation.md
+      - Database Setup: setup/database-setup.md
+      - Run Locally: setup/run-locally.md
+  - 10. Testing and Troubleshooting:
+      - Overview: testing/index.md
+      - Backend Tests: testing/backend-tests.md
+      - Frontend Build: testing/frontend-build.md
+      - Postman Examples: testing/postman-examples.md
+      - Common Issues: testing/common-issues.md
+  - 11. Security and Reliability:
+      - Overview: security/index.md
+      - Access Control: security/access-control.md
+      - Data Protection: security/data-protection.md
+      - Failure Handling: security/failure-handling.md
+      - Logging and Monitoring: security/logging-and-monitoring.md
+  - 12. Deployment and Contribution:
+      - Overview: deployment/index.md
+      - Deployment: deployment/deployment.md
+      - Branching and PRs: deployment/branching-and-prs.md
+      - Code Contribution: deployment/code-contribution.md
