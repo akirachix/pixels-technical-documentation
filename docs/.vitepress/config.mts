@@ -104,10 +104,9 @@ export default defineConfig({
         ],
       },
       {
-        text: "Setup & Deployment",
+        text: "Setup",
         collapsed: true,
         items: [
-          { text: "Deployment", link: "/deployment/deployment" },
           { text: "Installation", link: "/setup/installation" },
           { text: "Run Locally", link: "/setup/run-locally" },
           { text: "Database Setup", link: "/setup/database-setup" },
