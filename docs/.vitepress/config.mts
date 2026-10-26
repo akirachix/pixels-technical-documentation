@@ -61,6 +61,16 @@ export default defineConfig({
         ],
       },
       {
+        text: "Repository",
+        collapsed: true,
+        items: [
+          { text: "Repositories", link: "/repository/" },
+          { text: "Backend Repository", link: "/repository/backend-repo" },
+          { text: "Frontend Repository", link: "/repository/frontend-repo" },
+          { text: "IoT Server Repository", link: "/repository/iot-server-repo" },
+        ],
+      },
+      {
         text: "Communication Systems",
         collapsed: true,
         items: [
