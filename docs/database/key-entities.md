@@ -1,30 +1,30 @@
 # Key Entities
 
-## fishers
+## Fishers
 
 The people the system protects. Stores `full_name`, `phone_number`, the registering `operator_id`, and `created_at` / `updated_at`. A fisher can be in distress, or be asked to respond to someone else's alert.
 
-## wristbands
+## Wristbands
 
 The wearable that carries the RFID tag. Stores `rfid_tag`, `status`, the `fisher_id` it is assigned to, and `assigned_at`. Assigning a wristband to a fisher is what ties a physical signal to a person.
 
-## station_operators
+## Station_operators
 
 Staff who run a landing station and use the dashboard. Stores `first_name`, `last_name`, `email` and `password_hash`. Operators register fishers and acknowledge alerts. Passwords are never stored in plain text.
 
-## trips
+## Trips
 
 A fishing trip. Stores `fisher_id`, `total_fishers`, `checkin_at`, `checkout_at` and `status`. A trip is the context that gives location records meaning.
 
-## locations
+## Locations
 
 GPS points recorded during a trip. Stores `fisher_id`, `trip_id`, `latitude`, `longitude` and `recorded_at`. The latest location is what an alert points at.
 
-## islands
+## Islands
 
 Reference data for the fishing areas. Stores `island_name`, `island_latitude` and `island_longitude`.
 
-## distressed_fisher_alerts
+## Distressed_fisher_alerts
 
 One row per emergency.
 
@@ -37,7 +37,7 @@ One row per emergency.
 | `acknowledged_at` | When the operator took it on. |
 | `resolved_at` | When the emergency ended. Empty while the alert is open. |
 
-## alert_responders
+## Alert_responders
 
 One row per fisher asked to help with an alert.
 

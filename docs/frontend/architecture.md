@@ -20,10 +20,42 @@
 | Topic | Convention |
 | --- | --- |
 | Language | JSX, not TypeScript |
+| Framework | Next.js, App Router |
 | Styling | Tailwind classes, Nunito font |
 | Data access | Always through `lib/api.js` |
 | Auth token | Stored under the key `mvuvi_token` |
 | Layout | Shared via the `(dashboard)` route group |
+| State | Plain React hooks, no global store |
+
+## Project structure
+
+The tree below shows the layout the docs rely on. Names marked with `*` are the ones the rest of this section refers to.
+
+```text
+pixels-frontend/
+├── app/
+│   ├── layout.jsx              # root layout (fonts, global styles)
+│   ├── login/page.jsx          # sign-in page
+│   ├── register/page.jsx       # create-account page
+│   └── (dashboard)/            # * signed-in route group
+│       ├── layout.jsx          # * shared Sidebar + TopBar, session check
+│       ├── dashboard/page.jsx  # Operations Dashboard
+│       ├── incidents/page.jsx  # Live Incidents
+│       ├── fishers/page.jsx    # Fishers
+│       ├── wristbands/page.jsx # Wristbands
+│       ├── responders/page.jsx # Responders and Messages
+│       ├── reports/page.jsx    # Incident Reports and History
+│       └── settings/page.jsx   # System Settings
+├── components/                 # * Sidebar, TopBar, maps, tables, popups
+├── lib/
+│   └── api.js                  # * shared API client
+├── public/                     # static assets (logo, images)
+├── .env.local                  # local environment variables (not committed)
+├── next.config.mjs
+├── tailwind.config.js
+└── package.json
+```
+
 
 ## Talking to the backend
 
@@ -34,3 +66,5 @@ The dashboard consumes endpoints such as:
 | `/api/v1/alerts/` | Distressed fisher alerts shown on the map. |
 | `/api/v1/alert-responders/` | Nearest responders for an alert. |
 | `/api/v1/fishers/` | Fisher details. |
+
+The full list, including sign-in and registration, is in [API integration](./api-integration.md).
