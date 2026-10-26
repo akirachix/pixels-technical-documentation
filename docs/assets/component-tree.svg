@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 420" width="1180" font-family="Nunito, Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker></defs>
+<title>Dashboard component tree</title><rect x="1" y="1" width="1178" height="418" rx="14" fill="#fff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0f172a">Dashboard component tree</text>
+<rect x="450" y="56" width="280" height="60" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="590.0" y="83.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">layout.jsx</text>
+<text x="590.0" y="102.0" text-anchor="middle" font-size="12" fill="#475569">app/(dashboard) shared shell</text>
+<rect x="120" y="170" width="240" height="60" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="240.0" y="197.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Sidebar</text>
+<text x="240.0" y="216.0" text-anchor="middle" font-size="12" fill="#475569">Navigation</text>
+<rect x="470" y="170" width="240" height="60" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="590.0" y="197.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">TopBar</text>
+<text x="590.0" y="216.0" text-anchor="middle" font-size="12" fill="#475569">onMenuClick prop</text>
+<rect x="820" y="170" width="260" height="60" rx="10" fill="#f1f5f9" stroke="#0f766e" stroke-width="1.5"/>
+<text x="950.0" y="197.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Page</text>
+<text x="950.0" y="216.0" text-anchor="middle" font-size="12" fill="#475569">Route content</text>
+<line x1="590" y1="116" x2="240" y2="170" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="590" y1="116" x2="590" y2="170" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="590" y1="116" x2="950" y2="170" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<rect x="560" y="280" width="260" height="64" rx="10" fill="#f1f5f9" stroke="#0f766e" stroke-width="1.5"/>
+<text x="690.0" y="309.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Live Incidents</text>
+<text x="690.0" y="328.0" text-anchor="middle" font-size="12" fill="#475569">Map of SOS pins</text>
+<rect x="880" y="280" width="276" height="64" rx="10" fill="#f1f5f9" stroke="#0f766e" stroke-width="1.5"/>
+<text x="1018.0" y="309.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Responders and Messages</text>
+<text x="1018.0" y="328.0" text-anchor="middle" font-size="12" fill="#475569">Nearest responders and SMS</text>
+<line x1="950" y1="230" x2="690" y2="280" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="950" y1="230" x2="1018" y2="280" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<rect x="520" y="380" width="150" height="36" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="595.0" y="403.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Map and zoom buttons</text>
+<rect x="690" y="380" width="150" height="36" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="765.0" y="403.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">SOS pin popup</text>
+<line x1="690" y1="344" x2="595" y2="380" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="690" y1="344" x2="765" y2="380" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<rect x="870" y="380" width="100" height="36" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="920.0" y="403.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Map view</text>
+<rect x="980" y="380" width="100" height="36" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="1030.0" y="403.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">List view</text>
+<rect x="1090" y="380" width="80" height="36" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="1130.0" y="403.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">SMS table</text>
+<line x1="1018" y1="344" x2="920" y2="380" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="1018" y1="344" x2="1030" y2="380" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<line x1="1018" y1="344" x2="1130" y2="380" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+</svg>

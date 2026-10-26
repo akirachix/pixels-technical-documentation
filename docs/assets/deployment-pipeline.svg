@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1174 534" width="1174" font-family="Nunito, Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker></defs>
+<title>Build and deployment pipeline</title><rect x="1" y="1" width="1172" height="532" rx="14" fill="#fff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0f172a">Build and deployment pipeline</text>
+<text x="24" y="62" font-size="14" font-weight="700" fill="#0f172a">Technical docs (VitePress)</text>
+<circle cx="44" cy="108.0" r="17" fill="#334155"/><text x="44" y="113.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+<rect x="80" y="76" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="225.0" y="105.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Push or merge</text>
+<text x="225.0" y="124.0" text-anchor="middle" font-size="12" fill="#475569">Docs change reaches the publishing branch</text>
+<line x1="225.0" y1="140" x2="225.0" y2="192" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="44" cy="224.0" r="17" fill="#334155"/><text x="44" y="229.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="80" y="192" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="225.0" y="221.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">GitHub Actions</text>
+<text x="225.0" y="240.0" text-anchor="middle" font-size="12" fill="#475569">Workflow in .github/workflows</text>
+<line x1="225.0" y1="256" x2="225.0" y2="308" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="44" cy="340.0" r="17" fill="#334155"/><text x="44" y="345.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+<rect x="80" y="308" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="225.0" y="337.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Install and build</text>
+<text x="225.0" y="356.0" text-anchor="middle" font-size="12" fill="#475569">npm ci, then the VitePress build</text>
+<line x1="225.0" y1="372" x2="225.0" y2="424" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="44" cy="456.0" r="17" fill="#0f766e"/><text x="44" y="461.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+<rect x="80" y="424" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="225.0" y="453.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">GitHub Pages</text>
+<text x="225.0" y="472.0" text-anchor="middle" font-size="12" fill="#475569">Published documentation</text>
+<text x="404" y="62" font-size="14" font-weight="700" fill="#0f172a">Backend (pixels-backend)</text>
+<circle cx="424" cy="108.0" r="17" fill="#334155"/><text x="424" y="113.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+<rect x="460" y="76" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="605.0" y="105.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Install</text>
+<text x="605.0" y="124.0" text-anchor="middle" font-size="12" fill="#475569">uv sync</text>
+<line x1="605.0" y1="140" x2="605.0" y2="192" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="424" cy="224.0" r="17" fill="#334155"/><text x="424" y="229.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="460" y="192" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="605.0" y="221.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Migrate</text>
+<text x="605.0" y="240.0" text-anchor="middle" font-size="12" fill="#475569">alembic upgrade head</text>
+<line x1="605.0" y1="256" x2="605.0" y2="308" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="424" cy="340.0" r="17" fill="#334155"/><text x="424" y="345.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+<rect x="460" y="308" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="605.0" y="337.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Serve</text>
+<text x="605.0" y="356.0" text-anchor="middle" font-size="12" fill="#475569">uvicorn main:app</text>
+<line x1="605.0" y1="372" x2="605.0" y2="424" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="424" cy="456.0" r="17" fill="#0f766e"/><text x="424" y="461.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+<rect x="460" y="424" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="605.0" y="453.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">PostgreSQL</text>
+<text x="605.0" y="472.0" text-anchor="middle" font-size="12" fill="#475569">MvuviGo database</text>
+<text x="784" y="62" font-size="14" font-weight="700" fill="#0f172a">Dashboard (pixels-frontend)</text>
+<circle cx="804" cy="108.0" r="17" fill="#334155"/><text x="804" y="113.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+<rect x="840" y="76" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="985.0" y="105.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Install</text>
+<text x="985.0" y="124.0" text-anchor="middle" font-size="12" fill="#475569">npm install</text>
+<line x1="985.0" y1="140" x2="985.0" y2="192" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="804" cy="224.0" r="17" fill="#334155"/><text x="804" y="229.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="840" y="192" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="985.0" y="221.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Build</text>
+<text x="985.0" y="240.0" text-anchor="middle" font-size="12" fill="#475569">npm run build</text>
+<line x1="985.0" y1="256" x2="985.0" y2="308" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="804" cy="340.0" r="17" fill="#334155"/><text x="804" y="345.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+<rect x="840" y="308" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="985.0" y="337.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Serve</text>
+<text x="985.0" y="356.0" text-anchor="middle" font-size="12" fill="#475569">npm start</text>
+<line x1="985.0" y1="372" x2="985.0" y2="424" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<circle cx="804" cy="456.0" r="17" fill="#0f766e"/><text x="804" y="461.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+<rect x="840" y="424" width="290" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="985.0" y="453.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Backend API</text>
+<text x="985.0" y="472.0" text-anchor="middle" font-size="12" fill="#475569">Requests go to /api/v1</text>
+</svg>
