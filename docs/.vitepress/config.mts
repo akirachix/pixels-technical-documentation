@@ -23,10 +23,11 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/overview/" },
           { text: "Product Definition", link: "/overview/product-definition" },
-          { text: "Scope and Status", link: "/overview/scope-and-status" },
           { text: "System Overview", link: "/overview/system-overview" },
           { text: "Key Features", link: "/overview/key-features" },
+          { text: "Scope and Status", link: "/overview/scope-and-status" },
           { text: "Technology Stack", link: "/overview/technology-stack" },
+          { text: "Glossary", link: "/overview/glossary" },
         ],
       },
       {
