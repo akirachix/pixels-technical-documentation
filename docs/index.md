@@ -5,7 +5,7 @@ layout: page
 <div class="hero-container">
   <div class="logo-wrapper">
     <img class="main-logo" src="/images/icon.png" alt="MvuviGo Logo" />
-    <h1 class="logo-text">MvuviGo<span>Go</span></h1>
+    <h1 class="logo-text">Mvuvi<span>Go</span></h1>
   </div>
   
   <p class="hero-tagline">When the horizon is your office, connectivity is survival. MvuviGo delivers relentless tracking and emergency response for those who make their living on the Lake Victoria waters.</p>
