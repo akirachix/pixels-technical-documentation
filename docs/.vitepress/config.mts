@@ -23,10 +23,11 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/overview/" },
           { text: "Product Definition", link: "/overview/product-definition" },
-          { text: "Scope and Status", link: "/overview/scope-and-status" },
           { text: "System Overview", link: "/overview/system-overview" },
           { text: "Key Features", link: "/overview/key-features" },
+          { text: "Scope and Status", link: "/overview/scope-and-status" },
           { text: "Technology Stack", link: "/overview/technology-stack" },
+          { text: "Glossary", link: "/overview/glossary" },
         ],
       },
       {
@@ -61,6 +62,16 @@ export default defineConfig({
           { text: "Constraints", link: "/database/constraints" },
           { text: "Migration Scripts", link: "/database/migrations" },
           { text: "Seed Data", link: "/database/seed-data" },
+        ],
+      },
+      {
+        text: "Repository",
+        collapsed: true,
+        items: [
+          { text: "Repositories", link: "/repository/" },
+          { text: "Backend Repository", link: "/repository/backend-repo" },
+          { text: "Frontend Repository", link: "/repository/frontend-repo" },
+          { text: "IoT Server Repository", link: "/repository/iot-server-repo" },
         ],
       },
       {
@@ -104,7 +115,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "Setup & Deployment",
+        text: "Setup",
         collapsed: true,
         items: [
           { text: "Deployment and Contribution", link: "/deployment/" },
