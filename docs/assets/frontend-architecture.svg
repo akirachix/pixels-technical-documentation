@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 738" width="860" font-family="Nunito, Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker></defs>
+<title>Dashboard architecture</title><rect x="1" y="1" width="858" height="736" rx="14" fill="#fff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0f172a">Dashboard architecture</text>
+<circle cx="44" cy="92.0" r="17" fill="#334155"/><text x="44" y="97.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+<rect x="80" y="60" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="89.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Browser</text>
+<text x="250.0" y="108.0" text-anchor="middle" font-size="12" fill="#475569">Station operator signed in</text>
+<line x1="250.0" y1="124" x2="250.0" y2="176" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="154.0" font-size="12" fill="#475569">Opens a page</text>
+<circle cx="44" cy="208.0" r="17" fill="#334155"/><text x="44" y="213.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="80" y="176" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="205.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Next.js App Router</text>
+<text x="250.0" y="224.0" text-anchor="middle" font-size="12" fill="#475569">app/(dashboard) route group: layout and pages</text>
+<line x1="250.0" y1="240" x2="250.0" y2="292" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="270.0" font-size="12" fill="#475569">Page renders inside the shared layout</text>
+<circle cx="44" cy="324.0" r="17" fill="#334155"/><text x="44" y="329.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+<rect x="80" y="292" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="321.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Components</text>
+<text x="250.0" y="340.0" text-anchor="middle" font-size="12" fill="#475569">Sidebar, TopBar, maps, tables, popups (JSX)</text>
+<line x1="250.0" y1="356" x2="250.0" y2="408" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="386.0" font-size="12" fill="#475569">Components ask the page for data</text>
+<circle cx="44" cy="440.0" r="17" fill="#334155"/><text x="44" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+<rect x="80" y="408" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="437.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">lib/api.js</text>
+<text x="250.0" y="456.0" text-anchor="middle" font-size="12" fill="#475569">Shared API client, adds the access token</text>
+<line x1="250.0" y1="472" x2="250.0" y2="524" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="502.0" font-size="12" fill="#475569">HTTP request with token</text>
+<circle cx="44" cy="556.0" r="17" fill="#0f766e"/><text x="44" y="561.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">5</text>
+<rect x="80" y="524" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="553.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">MvuviGo backend API</text>
+<text x="250.0" y="572.0" text-anchor="middle" font-size="12" fill="#475569">FastAPI, /api/v1 endpoints</text>
+<line x1="250.0" y1="588" x2="250.0" y2="640" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="618.0" font-size="12" fill="#475569">SQL queries</text>
+<circle cx="44" cy="672.0" r="17" fill="#0f766e"/><text x="44" y="677.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="80" y="640" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="669.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">PostgreSQL</text>
+<text x="250.0" y="688.0" text-anchor="middle" font-size="12" fill="#475569">Alerts, fishers, responders, locations</text>
+</svg>

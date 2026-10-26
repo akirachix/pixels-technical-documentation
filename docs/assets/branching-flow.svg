@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 738" width="860" font-family="Nunito, Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker></defs>
+<title>Branching and pull request flow</title><rect x="1" y="1" width="858" height="736" rx="14" fill="#fff" stroke="#cbd5e1"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0f172a">Branching and pull request flow</text>
+<circle cx="44" cy="92.0" r="17" fill="#334155"/><text x="44" y="97.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">1</text>
+<rect x="80" y="60" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="89.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">develop</text>
+<text x="250.0" y="108.0" text-anchor="middle" font-size="12" fill="#475569">Shared integration branch</text>
+<line x1="250.0" y1="124" x2="250.0" y2="176" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="154.0" font-size="12" fill="#475569">git checkout -b feature/&lt;name&gt;</text>
+<circle cx="44" cy="208.0" r="17" fill="#334155"/><text x="44" y="213.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">2</text>
+<rect x="80" y="176" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="205.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">feature/&lt;name&gt;</text>
+<text x="250.0" y="224.0" text-anchor="middle" font-size="12" fill="#475569">Your own branch for one change</text>
+<line x1="250.0" y1="240" x2="250.0" y2="292" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="270.0" font-size="12" fill="#475569">git add, commit, push</text>
+<circle cx="44" cy="324.0" r="17" fill="#334155"/><text x="44" y="329.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">3</text>
+<rect x="80" y="292" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="321.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Commits</text>
+<text x="250.0" y="340.0" text-anchor="middle" font-size="12" fill="#475569">Small, focused changes</text>
+<line x1="250.0" y1="356" x2="250.0" y2="408" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="386.0" font-size="12" fill="#475569">Open a PR into develop</text>
+<circle cx="44" cy="440.0" r="17" fill="#334155"/><text x="44" y="445.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">4</text>
+<rect x="80" y="408" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="437.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Pull request</text>
+<text x="250.0" y="456.0" text-anchor="middle" font-size="12" fill="#475569">feature/&lt;name&gt; into develop</text>
+<line x1="250.0" y1="472" x2="250.0" y2="524" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="502.0" font-size="12" fill="#475569">CI runs, reviewer reads the diff</text>
+<circle cx="44" cy="556.0" r="17" fill="#334155"/><text x="44" y="561.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">5</text>
+<rect x="80" y="524" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="553.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Checks and review</text>
+<text x="250.0" y="572.0" text-anchor="middle" font-size="12" fill="#475569">PR Ready Check and reviewer</text>
+<line x1="250.0" y1="588" x2="250.0" y2="640" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+<text x="264.0" y="618.0" font-size="12" fill="#475569">Approved. If changes are requested, fix and push again</text>
+<circle cx="44" cy="672.0" r="17" fill="#0f766e"/><text x="44" y="677.0" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">6</text>
+<rect x="80" y="640" width="340" height="64" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+<text x="250.0" y="669.0" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Merged into develop</text>
+<text x="250.0" y="688.0" text-anchor="middle" font-size="12" fill="#475569">Feature branch can be deleted</text>
+</svg>
