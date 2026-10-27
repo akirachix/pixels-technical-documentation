@@ -2,17 +2,21 @@
 layout: page
 ---
 
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 <div class="hero-container">
   <div class="logo-wrapper">
-    <img class="main-logo" src="/images/icon.png" alt="MvuviGo Logo" />
+    <img class="main-logo" :src="withBase('/images/icon.png')" alt="MvuviGo Logo" />
     <h1 class="logo-text">Mvuvi<span>Go</span></h1>
   </div>
   
   <p class="hero-tagline">When the horizon is your office, connectivity is survival. MvuviGo delivers relentless tracking and emergency response for those who make their living on the Lake Victoria waters.</p>
   
   <div class="hero-actions">
-    <a class="btn brand-btn" href="/overview/product-definition/">Get Started</a>
-    <a class="btn alt-btn" href="/overview/key-features">Explore the Platform</a>
+    <a class="btn brand-btn" :href="withBase('/overview/product-definition')">Get Started</a>
+    <a class="btn alt-btn" :href="withBase('/overview/key-features')">Explore the Platform</a>
   </div>
 </div>
 
@@ -36,10 +40,10 @@ layout: page
 <div class="footer-callout-container">
   <div class="footer-callout">
     <div class="footer-line">
-      Learn more about MvuviGo on our <a href="https://pixels-informational-website.vercel.app/" target="_blank">Website</a>.
+      Learn more about MvuviGo on our <a href="https://pixels-informational-website.vercel.app/" target="_blank" rel="noopener noreferrer">Website</a>.
     </div>
     <div class="footer-line">
-      Ready to get started? <a href="/setup/installation">Start here!</a>
+      Ready to get started? <a :href="withBase('/setup/installation')">Start here!</a>
     </div>
   </div>
 </div>
@@ -89,7 +93,6 @@ layout: page
 .dark .hero-tagline {
   color: #ffffff !important;
 }
-
 
 .hero-actions {
   display: flex;
