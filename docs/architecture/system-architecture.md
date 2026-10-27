@@ -8,7 +8,7 @@ This section outlines the high-level physical and software architecture of the M
 
 ## Architecture Flow
 
-The system operates across three primary layers, bridging the physical maritime environment with the central cloud infrastructure:
+The system operates across four primary layers, bridging the physical maritime environment with the central cloud infrastructure:
 
 ### 1. Hardware & Edge Layer (Field)
 * **Fisher Wearables:** RFID wristbands and panic buttons worn by fishers to transmit SOS alerts and GPS coordinates.

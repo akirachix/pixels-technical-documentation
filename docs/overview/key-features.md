@@ -1,58 +1,42 @@
-# Product Definition
+# Key Features
 
-## The problem
+Features are grouped by the job they do and linked to the PRD's core feature IDs. For delivery status see [Scope and Status](scope-and-status.md).
 
-Lake Victoria supports the livelihoods of many small-scale fishers who spend long hours on the water in small boats. Storms, strong winds, high waves and accidents can place them in danger quickly, often far from the landing site, and at night.
+## 1. Raise an alarm
 
-When that happens, three things go wrong:
-
-1. **The fisher has no dependable way to call for help.** Many fishers do not have a reliable way to raise an alarm, and mobile coverage on the water cannot be assumed.
-2. **Nobody nearby knows where the boat is.** Other fishers and the landing site may not learn that help is needed, or where.
-3. **Response is slow and informal.** Rescue depends on fellow fishers noticing and having a boat and fuel available. Searches can take a long time, and little is recorded afterward.
-
-Other measures address parts of the problem but not this gap:
-
-| Measure | What it does | What it leaves open |
-|---|---|---|
-| Weather forecasts and alerts | Warn areas of dangerous conditions | Do not tell anyone a specific boat is in trouble |
-| Life jackets and safety training | Reduce the risk of drowning | Do not summon help |
-| Satellite emergency beacons | Alert distant national authorities | Costly, and do not alert nearby fishers |
-| Government rescue centres | Coordinate formal rescue | Not yet within quick reach of every landing site |
-| Informal community rescue | Uses fishers already on the water | Slow, with no way to locate the boat |
-
-## Purpose
-
-MvuviGo shortens the delay between **a boat getting into trouble** and **someone nearby knowing where it is and acting**.
-
-It does this by combining four capabilities:
-
-- a one-button **alarm** that works without mobile coverage;
-- an immediate **alert** to the landing site and to the nearby fishers best placed to help;
-- **guidance** that helps responders find the distressed boat as it and they move;
-- **coordination and a record** managed by a person at the landing site.
-
-The product boundary is **emergency detection, local notification, response coordination and incident recording**.
-
-## Target users
-
-| User | Who they are | What they need from MvuviGo | Constraints that shape the design |
+| Feature | What it does | Why it exists | ID |
 |---|---|---|---|
-| **Fisher in distress** | A small-scale fisher who may be far from shore | Raise an alarm quickly, with a usable location, without a smartphone | Cannot rely on mobile coverage. Location is shared on SOS, not continuously |
-| **Responding fisher** | A participating fisher on a nearby boat | Know that someone needs help, where they are, and how to reach them as positions change | Often has only a basic feature phone, so guidance arrives as simple messages |
-| **Landing-site operator** | The person at the landing site who runs the station | One view of the emergency, who is nearby and how far away, and a way to record the outcome | Coordinates by phone. Needs to be available when boats are out |
+| SOS button | One press starts an emergency | Many lakeside residents did not know how to call for rescue | CF-02 |
+| GPS capture | Records the latest available location with the SOS | Rescuers need to know where the boat is | CF-02 |
+| LoRa transmission | Sends the SOS and location to the landing station | Avoids reliance on mobile coverage for the first alert | CF-03 |
+| Buzzer and OLED | Local audible and visual feedback | Confirms the device is working | n/a |
 
-Others are affected but are not direct users: boat owners and landing-site organisations (who are likely to provide and support devices), fishers' families, and rescue agencies that may use incident information.
+## 2. Alert the people closest to the incident
 
-## Main use cases
-
-| # | Use case | What happens | Outcome |
+| Feature | What it does | Why it exists | ID |
 |---|---|---|---|
-| 1 | **Raise an alarm** | A fisher in danger presses the SOS button. The device captures the latest available GPS location and sends the alert over radio | The landing site and nearby participating fishers know that help is needed and where |
-| 2 | **Respond to an alarm** | A nearby fisher is alerted, their position is shared, and they receive directions to the distressed boat. Directions refresh every 30 seconds as boats move | The responder can decide whether and how to help and adjust their route |
-| 3 | **Coordinate from shore** | The operator sees the distressed boat, nearby boats and distances on a dashboard, then contacts responders by normal phone call | Response is organised by a person with the full picture |
-| 4 | **Record the incident** | The operator records the incident, responses, status and outcome | A record exists for follow-up and for improving safety |
-| 5 | **Set up participation** | The operator registers a fisher and pairs a device to them | Alerts are tied to the right person |
+| Emergency notification | Alerts the landing station and nearby participating fishers | Fellow fishers are the main rescue service | CF-04 |
+| Responder location | Nearby devices share their current positions | Lets the system see who can reach the boat | CF-04 |
 
-## Core functionality in one paragraph
+## 3. Guide and coordinate the response
 
-A fisher carries a device. Pressing its button sends an SOS with the fisher's identity and latest location by long-range radio to the landing station and nearby participating devices. Nearby boats share their positions. The landing-site dashboard shows the distressed boat, nearby boats and distances, and AI-generated directions are sent to responders' feature phones, refreshed as positions change. The operator coordinates the response and records the outcome. See [System Overview](system-overview.md) for how this works step by step.
+| Feature | What it does | Why it exists | ID |
+|---|---|---|---|
+| Emergency dashboard | Shows the emergency, the distressed boat, nearby boats and distances | The operator needs one view of the incident | CF-05 |
+| Automated directions | Produces directions from each responder to the distressed boat | Helps responders find the boat, especially at night | CF-06 |
+| Response coordination | Operator monitors and contacts responders by normal phone call | Rescue stays human-led | CF-08 |
+
+## 4. Run the service
+
+| Feature | What it does | Why it exists | ID |
+|---|---|---|---|
+| Fisher registration and device pairing | Operator links each fisher to a unique device | Knows who is in the network and who is in distress | CF-01 |
+| RFID identification | Identifies the registered fisher during use | Ties alerts to a person | CF-01 |
+| Incident recording | Logs the incident, response, status and outcome | Addresses poor incident records and supports follow-up | CF-08 |
+
+## Design limits on these features
+
+- **AI directions are decision support.** They do not dispatch rescue, control boats or make final decisions (OOS-02).
+- **Location is shared on SOS, not continuously.** There is no trip tracking in the MVP.
+- **The system does not forecast weather** (OOS-01).
+- **The features cover the communication and coordination chain between trouble and local help.** They do not make a rescue happen. Whether a boat is available, able and willing to respond depends on people and equipment outside the system.
