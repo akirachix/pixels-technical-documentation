@@ -4,7 +4,24 @@ The MvuviGo platform handles life-critical data. The security architecture is de
 
 ## System Security Zones
 
-![MvuviGo Secure System Architecture Diagram](/images/ssad.png)
+<img 
+  id="ssad-zoom" 
+  src="/images/ssad.png" 
+  alt="MvuviGo Secure System Architecture Diagram" 
+  style="width: 100%; cursor: zoom-in;" 
+/>
+
+<script setup>
+import { onMounted } from 'vue'
+import mediumZoom from 'medium-zoom'
+
+onMounted(() => {
+  mediumZoom('#ssad-zoom', {
+    background: 'rgba(0, 0, 0, 0.8)',
+    margin: 24,
+  })
+})
+</script>
 
 The platform is divided into three distinct security zones to prevent unauthorized access and contain potential breaches:
 
