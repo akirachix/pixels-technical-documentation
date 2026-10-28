@@ -1,147 +1,60 @@
-
 # Postman Examples
 
-Postman is used to test MvuviGo API endpoints, verify responses, and identify errors.
+Use Postman to inspect the documented API in a local or approved test environment. The route examples below are taken from the MvuviGo API reference. Do not use real fisher data or send SOS test requests to a live service.
 
-## 1. Set Up Postman
+## 1. Set up a collection and variables
 
-1. Start the FastAPI backend.
-2. Open Postman and create a collection named `MvuviGo API Tests`.
-3. Use `http://localhost:8000` as the base URL.
+1. Create a collection named `MvuviGo Local API`.
 
-## 2. Test GET Requests
+1. Add collection variables:
+  - `baseUrl`: `http://localhost:8000`
+  - `accessToken`: leave empty until you have obtained a token through the documented authentication flow.
 
-Use GET to retrieve data from an endpoint.
+1. Use the endpoint paths exactly as written in [API Endpoints](../api/endpoints.md). Some resources use different prefixes and trailing-slash conventions.
 
-**Example: Retrieve Fishers**
+## 2. Verify API availability
 
-```http
-GET http://localhost:8000/api/fishers
+Create a request:
+
+```
+GET {{baseUrl}}/health
 ```
 
-Click **Send** and verify the status code and returned data.
+The API reference documents this route as unauthenticated. Expected result: `200` and a JSON object. This check confirms only that the API health route responds; it does not validate the database, MQTT, SMS or rescue workflow unless the implementation explicitly includes those checks.
 
-## 3. Test POST Requests
+## 3. Check an authenticated read endpoint
 
-Use POST to create a new record.
+After completing the flow in [API Authentication](../api/authentication.md), set `accessToken` to the issued access token and create:
 
-**Example: Create a Fisher**
-
-```http
-POST http://localhost:8000/api/fishers
-Content-Type: application/json
+```
+GET {{baseUrl}}/api/fishers/?skip=0&limit=100
+Authorization: Bearer {{accessToken}}
+Accept: application/json
 ```
 
-Under **Body → raw → JSON**, enter:
+The API reference documents this path as requiring Bearer authentication. Expected result for a valid token is `200` with a JSON array. An unauthenticated or invalid-token request should be rejected according to the authentication behavior documented by the backend.
 
-```json
-{
-  "name": "Test Fisher",
-  "phone_number": "0700000000"
-}
-```
+For sensitive or empty test databases, prefer a read-only request. Do not create or delete production records for a manual test.
 
-Click **Send** and verify that the record is created successfully.
+## 4. Test validation safely
 
-## 4. Test PUT Requests
+To test a protected endpoint's authentication behavior, repeat the read request without the `Authorization` header and record the actual status and response body. To test request validation, use a disposable local environment and choose an endpoint whose request schema is documented in [Schemas](../api/schemas.md). Avoid sending malformed requests to a live service.
 
-Use PUT to replace or update a resource, depending on the API implementation.
+## 5. Check responses
 
-**Example: Update a Fisher**
+Record the method, full path, environment, status code, response time, and a redacted response excerpt. The endpoint reference documents common success patterns, including `200` for reads/actions, `201` for creates and `204` for deletes; always use the specific endpoint's documented response rather than assuming every request returns the same status.
 
-```http
-PUT http://localhost:8000/api/fishers/1
-Content-Type: application/json
-```
-
-Example body:
-
-```json
-{
-  "name": "Updated Fisher",
-  "phone_number": "0712345678"
-}
-```
-
-Click **Send** and verify that the response reflects the updated information.
-
-## 5. Test PATCH Requests
-
-Use PATCH to update specific fields of an existing record.
-
-**Example: Update a Fisher's Phone Number**
-
-```http
-PATCH http://localhost:8000/api/fishers/1
-Content-Type: application/json
-```
-
-Example body:
-
-```json
-{
-  "phone_number": "0712345678"
-}
-```
-
-Verify that the phone number changes and other fields remain unchanged.
-
-## 6. Test DELETE Requests
-
-Use DELETE to remove an existing record.
-
-**Example: Delete a Fisher**
-
-```http
-DELETE http://localhost:8000/api/fishers/1
-```
-
-Click **Send** and check the response status code. Send a GET request for the same ID to verify that the record has been removed.
-
-## 7. Test Authentication
-
-1. Send a request to the login endpoint.
-2. Copy the access token from the response.
-3. Open **Authorization** and select **Bearer Token**.
-4. Paste the token and send a request to a protected endpoint.
-5. Repeat without a token to check whether unauthorized access is rejected.
-
-## 8. Test Invalid Inputs
-
-Test requests with:
-- Missing required fields
-- Incorrect data types
-- Invalid record IDs
-- Missing or invalid authentication tokens
-
-Verify that the API returns appropriate error responses.
-
-| Status Code | Meaning |
-|---|---|
-| 200 | Request successful |
-| 201 | Resource created |
-| 204 | Request successful, no response body |
-| 401 | Unauthorized |
-| 404 | Resource not found |
-| 422 | Validation error |
-| 500 | Internal server error |
-
-## 9. Validate Responses
-
-Under **Scripts → Post-response**, add assertions:
+Example Postman post-response checks for the health request:
 
 ```javascript
-pm.test("Status code is 200", () => {
-    pm.response.to.have.status(200);
+pm.test("Health route returns 200", () => {
+  pm.response.to.have.status(200);
 });
-
 pm.test("Response is JSON", () => {
-    pm.response.to.be.json;
+  pm.response.to.be.json;
 });
 ```
 
-Adjust the expected status code to match the endpoint. For example, a successful DELETE request may return `200` or `204`.
+## 6. Record a reproducible failure
 
-## 10. Record Test Results
-
-For failed requests, record the endpoint, test data, expected result, actual result, and steps to reproduce the issue. Retest after fixes to confirm that the endpoint works correctly.
+For a failed request, record the API version or commit, method and route, test environment, redacted request shape, expected result, actual result, and steps to reproduce. Do not include bearer tokens, passwords, phone numbers or precise fisher locations. See [Common Issues](./common-issues.md) for local diagnostics.

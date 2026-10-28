@@ -1,16 +1,15 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
   title: "MvuviGo Technical Documentation",
-  base: '/pixels-technical-documentation/',
-  description: "Technical architecture and system design for the MvuviGo maritime safety platform",
-  
-  head: [
-    ['link', { rel: 'stylesheet', href: '/custom.css' }]
-  ],
+  base: "/pixels-technical-documentation/",
+  description:
+    "Technical architecture and system design for the MvuviGo maritime safety platform",
+
+  head: [["link", { rel: "stylesheet", href: "/custom.css" }]],
 
   themeConfig: {
-    logo: '/logo.png',
+    logo: "/logo.png",
     nav: [
       { text: "Home", link: "/" },
       { text: "Overview", link: "/overview/" },
@@ -35,9 +34,18 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: "Introduction", link: "/architecture/" },
-          { text: "Architecture Principles", link: "/architecture/architecture-principles" },
-          { text: "System Architecture", link: "/architecture/system-architecture" },
-          { text: "Component Diagram", link: "/architecture/component-diagram" },
+          {
+            text: "Architecture Principles",
+            link: "/architecture/architecture-principles",
+          },
+          {
+            text: "System Architecture",
+            link: "/architecture/system-architecture",
+          },
+          {
+            text: "Component Diagram",
+            link: "/architecture/component-diagram",
+          },
           { text: "Data Flow", link: "/architecture/data-flow" },
         ],
       },
@@ -71,7 +79,10 @@ export default defineConfig({
           { text: "Repositories", link: "/repository/" },
           { text: "Backend Repository", link: "/repository/backend-repo" },
           { text: "Frontend Repository", link: "/repository/frontend-repo" },
-          { text: "IoT Server Repository", link: "/repository/iot-server-repo" },
+          {
+            text: "IoT Server Repository",
+            link: "/repository/iot-server-repo",
+          },
         ],
       },
       {
@@ -79,8 +90,14 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: "Introduction", link: "/communication/" },
-          { text: "RFID and Station Hardware", link: "/communication/rfid-and-station-hardware" },
-          { text: "LoRa Relay and Mesh", link: "/communication/lora-relay-and-mesh" },
+          {
+            text: "RFID and Station Hardware",
+            link: "/communication/rfid-and-station-hardware",
+          },
+          {
+            text: "LoRa Relay and Mesh",
+            link: "/communication/lora-relay-and-mesh",
+          },
           { text: "SMS Integration", link: "/communication/sms-integration" },
           { text: "GPS Tracking", link: "/communication/gps-tracking" },
         ],
@@ -92,9 +109,15 @@ export default defineConfig({
           { text: "Introduction", link: "/frontend/" },
           { text: "Architecture", link: "/frontend/architecture" },
           { text: "Routing", link: "/frontend/routing" },
-          { text: "Pages and Components", link: "/frontend/pages-and-components" },
+          {
+            text: "Pages and Components",
+            link: "/frontend/pages-and-components",
+          },
           { text: "State Management", link: "/frontend/state-management" },
-          { text: "Forms and Validation", link: "/frontend/forms-and-validation" },
+          {
+            text: "Forms and Validation",
+            link: "/frontend/forms-and-validation",
+          },
           { text: "API Integration", link: "/frontend/api-integration" },
           { text: "Authentication", link: "/frontend/authentication" },
           { text: "Maps and Real-time", link: "/frontend/maps-and-real-time" },
@@ -110,24 +133,42 @@ export default defineConfig({
           { text: "Introduction", link: "/security/" },
           { text: "Access Control", link: "/security/access-control" },
           { text: "Data Protection", link: "/security/data-protection" },
-          { text: "Logging and Monitoring", link: "/security/logging-and-monitoring" },
+          {
+            text: "Logging and Monitoring",
+            link: "/security/logging-and-monitoring",
+          },
           { text: "Failure Handling", link: "/security/failure-handling" },
         ],
       },
       {
-        text: "Setup",
+        text: "Developer Setup",
         collapsed: true,
         items: [
-          { text: "Deployment and Contribution", link: "/deployment/" },
-          { text: "Deployment", link: "/deployment/deployment" },
-          { text: "Branching and Pull Requests", link: "/deployment/branching-and-prs" },
-          { text: "Code Contribution", link: "/deployment/code-contribution" },
+          { text: "Onboarding", link: "/setup/" },
+          { text: "Prerequisites", link: "/setup/prerequisites" },
           { text: "Installation", link: "/setup/installation" },
-          { text: "Run Locally", link: "/setup/run-locally" },
+          {
+            text: "Environment Variables",
+            link: "/setup/environment-variables",
+          },
           { text: "Database Setup", link: "/setup/database-setup" },
-          { text: "Environment Variables", link: "/setup/environment-variables" },
+          { text: "Run Locally", link: "/setup/run-locally" },
         ],
       },
+      {
+        text: "Deployment and Contribution",
+        collapsed: true,
+        items: [
+          { text: "Introduction", link: "/deployment/" },
+          { text: "Deployment", link: "/deployment/deployment" },
+          {
+            text: "Branching and Pull Requests",
+            link: "/deployment/branching-and-prs",
+          },
+          { text: "Code Contribution", link: "/deployment/code-contribution" },
+        ],
+      },
+
       {
         text: "Workflows",
         collapsed: true,
@@ -135,7 +176,10 @@ export default defineConfig({
           { text: "Introduction", link: "/workflows/" },
           { text: "Trip Tracking", link: "/workflows/trip-tracking" },
           { text: "SOS Alert Flow", link: "/workflows/sos-alert-flow" },
-          { text: "Rescue Coordination", link: "/workflows/rescue-coordination" },
+          {
+            text: "Rescue Coordination",
+            link: "/workflows/rescue-coordination",
+          },
         ],
       },
       {
@@ -151,4 +195,4 @@ export default defineConfig({
       },
     ],
   },
-})
+});

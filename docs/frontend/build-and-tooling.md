@@ -16,7 +16,7 @@ Run these from the `pixels-frontend` folder:
 
 | Command | What it does |
 | --- | --- |
-| `npm install` | Install dependencies |
+| `npm ci` | Install the exact dependencies recorded in `package-lock.json` |
 | `npm run dev` | Start the development server on port 3000 |
 | `npm run build` | Create the optimised production build |
 | `npm run start` | Serve the production build |
@@ -32,7 +32,10 @@ Variables that start with `NEXT_PUBLIC_` are included in the browser bundle, so 
 
 ## Build process
 
-1. `npm install` installs dependencies from `package-lock.json`.
-2. `npm run build` compiles the pages, bundles the JavaScript and CSS, and generates the static assets.
-3. The build fails on compile errors, so fix them before release.
-4. `npm run start` serves the result for a final check.
+1. `npm ci` installs the exact dependencies recorded in `package-lock.json`.
+
+1. `npm run build` compiles the pages, bundles the JavaScript and CSS, and generates the static assets.
+
+1. The build fails on compile errors, so fix them before release.
+
+1. `npm run start` serves the result for a final check.

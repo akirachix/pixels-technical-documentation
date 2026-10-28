@@ -12,28 +12,28 @@ import { withBase } from 'vitepress'
     <h1 class="logo-text">Mvuvi<span>Go</span></h1>
   </div>
   
-  <p class="hero-tagline">When the horizon is your office, connectivity is survival. MvuviGo delivers relentless tracking and emergency response for those who make their living on the Lake Victoria waters.</p>
+  <p class="hero-tagline">MvuviGo helps small-scale fishers on Lake Victoria raise an SOS and coordinate a human-led local response when mobile coverage may be unreliable.</p>
   
   <div class="hero-actions">
-    <a class="btn brand-btn" :href="withBase('/overview/product-definition')">Get Started</a>
+    <a class="btn brand-btn" :href="withBase('/setup/')">Developer Onboarding</a>
     <a class="btn alt-btn" :href="withBase('/overview/key-features')">Explore the Platform</a>
   </div>
 </div>
 
 <div class="advantages-grid">
   <div class="card">
-    <h3>Unbroken Connectivity</h3>
-    <p>Leveraging custom LoRa mesh networks and edge hardware to keep communication alive when cellular signals drop off the map.</p>
+    <h3>Long-range first alert</h3>
+    <p>The system is designed to send an initial SOS over long-range radio without depending on mobile coverage. Availability still depends on working devices, station reach and power.</p>
   </div>
   
   <div class="card">
-    <h3>Seamless Fleet Management</h3>
-    <p>A comprehensive dashboard for station operators to register vessels, assign RFID wristbands, and monitor active trips in real time.</p>
+    <h3>Landing-site coordination</h3>
+    <p>Operators register fishers and pair devices, then use the dashboard to review emergency information and coordinate a response.</p>
   </div>
   
   <div class="card">
-    <h3>Rapid Response Protocol</h3>
-    <p>Instant distress alerts that route directly to the nearest rescue responders, turning critical emergencies into coordinated actions.</p>
+    <h3>Human-led response</h3>
+    <p>Emergency alerts and available location information support nearby participating fishers and the landing-site operator. People decide whether and how to respond.</p>
   </div>
 </div>
 
@@ -43,7 +43,7 @@ import { withBase } from 'vitepress'
       Learn more about MvuviGo on our <a href="https://pixels-informational-website.vercel.app/" target="_blank" rel="noopener noreferrer">Website</a>.
     </div>
     <div class="footer-line">
-      Ready to get started? <a :href="withBase('/setup/installation')">Start here!</a>
+      Ready to develop MvuviGo? <a :href="withBase('/setup/')">Follow the onboarding guide.</a>
     </div>
   </div>
 </div>
