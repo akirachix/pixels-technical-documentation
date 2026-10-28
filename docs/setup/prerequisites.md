@@ -1,25 +1,31 @@
 # Prerequisites
 
-Before you can run MvuviGo locally, you need the following tools installed on your machine.
+Install the tools needed by the component you intend to work on. The version requirements below reflect the current project documentation; confirm them against the relevant repository's README and dependency files before upgrading or changing a shared development environment.
 
-## Required Software
+## Required for the platform
 
-1. **Python 3.11+**
-   * Required for the FastAPI backend.
-   * You also need `uv` installed for fast Python package management. (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
-2. **Node.js (v20 or v22)**
-   * Required for both the Next.js frontend and the Node.js IoT server.
-   * `npm` comes pre-installed with Node.js.
-3. **PostgreSQL**
-   * Required for the main database.
-   * Ensure the PostgreSQL service is running on your machine (usually on port 5432).
-4. **Git**
-   * Required to clone the repositories.
+| Tool | Used by | Documented requirement or check |
+| --- | --- | --- |
+| Git | All repositories | `git --version` |
+| Python | `pixels-backend` | Python 3.11 or newer; check with `python3 --version` |
+| `uv` | `pixels-backend` | Python package/environment manager; check with `uv --version` |
+| Node.js and npm | `pixels-frontend`, `pixels-iot` and this docs site | The current docs specify Node.js 20 or 22; check with `node --version` and `npm --version`. Confirm the active repository's `engines` field if present. |
+| PostgreSQL | Backend persistence | A local development service reachable by the backend; check with `psql --version` |
 
-## Optional Tools
-* **Postman**: For testing the FastAPI endpoints manually.
-* **MqttX**: A desktop client for publishing and subscribing to MQTT topics to simulate hardware devices.
-* **OpenSSL**: Required to generate the RSA keys for JWT authentication (usually pre-installed on Linux/macOS).
+The backend README or project metadata is authoritative for its Python and `uv` requirements. The frontend and IoT repository lockfiles and `package.json` scripts are authoritative for their Node.js commands.
 
-## Hardware Requirements
-* At least 8GB of RAM is recommended, as running PostgreSQL, Next.js, FastAPI, and Node.js simultaneously can be resource-intensive.
+## Optional tools
+
+- **Postman** for manual API requests; see [Postman Examples](../testing/postman-examples.md).
+
+- **MQTTX** or another MQTT client to inspect or simulate messages only when the IoT repository documents the required broker, topics and payloads. Do not publish test data to a production broker.
+
+- **OpenSSL** if the backend's setup instructions require local RSA key generation. Do not generate or reuse production keys for local development.
+
+## Hardware and integration testing
+
+A laptop-only setup can validate the API and dashboard, but it cannot prove the full device-to-rescue path. Testing LoRa, RFID, GPS, MQTT, SMS delivery or an SOS response may require the appropriate device, test broker, gateway credentials, provider sandbox or a project-approved simulator. Use a test environment and test identities only.
+
+## Resource guidance
+
+Running PostgreSQL, the backend, dashboard and IoT gateway together uses more memory than running one service. The project documentation recommends at least 8 GB of RAM for the complete local stack; a smaller setup may still run selected services individually.

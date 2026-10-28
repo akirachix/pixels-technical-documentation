@@ -1,33 +1,41 @@
 # Seed Data
 
-Seed data is the information a fresh database needs before the system is useful. Everything else is created by people using the dashboard and by the wristbands and stations.
+Seed data is information needed to make a fresh database useful. The project documentation identifies island reference records and an initial station-operator account as potential setup needs, while sample fishers, wristbands, trips, locations and alerts are for local development or demos.
 
-## What needs seeding
 
-| Table | Why | Needed in production |
+## Data categories
+
+| Data | Documented purpose | Handling guidance |
 | --- | --- | --- |
-| `islands` | Reference data for the fishing areas: `island_name`, `island_latitude` and `island_longitude`. | Yes |
-| `station_operators` | At least one operator must exist to log in and register fishers. The password is stored as a hash, never in plain text. | Yes, the first operator only |
-| `fishers`, `wristbands`, `trips`, `locations` | Sample records for local development and demos. | No |
-| `distressed_fisher_alerts`, `alert_responders` | Sample alerts for local development and demos. | No |
+| Islands | Reference names and coordinates used by the product | Use an approved, sourced dataset. The exact list and source are not included here. |
+| First station operator | Allows an authorized operator to access the dashboard | Create through the backend's secured account-creation process; never store a plaintext password in a seed file. Confirm the actual bootstrap flow in the backend repository. |
+| Fishers, wristbands, trips and locations | Local development or demo records | Use invented identities and synthetic coordinates only. |
+| SOS alerts and responders | Local workflow demonstration | Use synthetic events in a local/test environment; never replay test alerts to real responders. |
 
-The list of islands to load: **TO CONFIRM**.
+## Verify the seeding mechanism
 
-## How seed data is loaded
+From the backend repository root, before changing a database:
 
-**TO CONFIRM:** whether seed data is loaded by a script, by a migration or by hand, and the exact command. Document it here once decided, for example:
+1. Read the repository README and inspect `pyproject.toml` for documented scripts or commands.
 
-```bash
-# TO CONFIRM: replace with the real command
-python <seed-script>
-```
+1. Inspect the Alembic migrations and search the repository for seed/fixture files or commands. Do not assume a filename or entry point.
 
-If there is no seed mechanism yet, state "none" here and list how the first operator and the islands are created.
+1. Confirm whether reference data is created by a migration, an idempotent script, an API workflow or a manual approved process.
+
+1. If a script exists, verify that it is safe to run more than once and that it cannot target production by accident.
+
+1. Run it only against a disposable local/test database, then verify the resulting rows and record the exact command and source dataset here.
+
+If the checked-out application repository has no seed mechanism, document that explicitly and describe the approved local setup path for the first operator and reference data. Keep this page synchronized with any later script or migration change.
 
 ## Rules
 
-- A seed script must be safe to run twice. Check for existing rows before inserting.
-- Never load development sample data into production.
-- Sample data uses invented names and phone numbers, never real people.
-- Do not commit real passwords or real operator accounts. Create the first production operator through a secured step and store its credentials in the host's secret store.
-- Backend tests create their own data and roll it back, so they do not depend on seed data.
+- Keep development seed data separate from production data.
+
+- Use synthetic names, phone numbers and locations; do not copy real fisher records into a test environment.
+
+- Never seed plaintext passwords, API keys, tokens or provider credentials.
+
+- Make repeatable seed operations idempotent or clearly document that they are one-time operations.
+
+- Backend tests should use isolated test fixtures rather than depending on a developer's local seed dataset.

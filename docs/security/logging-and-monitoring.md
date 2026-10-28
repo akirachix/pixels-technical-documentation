@@ -1,17 +1,43 @@
 # Logging and Monitoring
 
-To ensure the system is running smoothly and to investigate issues during rescue operations, MvuviGo implements structured logging.
+Logs can support debugging and incident review, but MvuviGo handles identity and location data. The statements below reflect the existing technical documentation; verify actual log fields, access controls and retention against the running services before relying on them.
 
-## Backend Logging (FastAPI)
-* Every request is logged with its HTTP method, path, and response status code.
-* When an OTP is generated, a log is printed (in development mode) so developers can test without an email server.
-* Rate limit violations are logged automatically.
+## Documented logging behavior
 
-## IoT Server Logging (Node.js)
-The Node.js server uses Fastify's built-in logger (Pino). It logs:
-* `MQTT connected to HiveMQ`: When the server connects to the broker.
-* `Trip started/completed`: When a fisher checks in or out via RFID.
-* `SOS alert triggered`: When a panic button is pressed, including the Fisher ID and GPS coordinates.
+| Component | Behavior described in the current docs | Verification needed |
+| --- | --- | --- |
+| FastAPI backend | Request method, path and response status are logged; OTPs may be printed in development mode; rate-limit violations are logged | Confirm that secrets, bearer tokens, request bodies and personal data are excluded or appropriately redacted in each environment. Confirm who can access logs and how long they are retained. |
+| Node.js IoT gateway | The docs describe MQTT connection, trip start/completion and SOS events being logged. They state SOS records may include fisher ID and GPS coordinates. | Verify the actual fields, purpose, access control and retention. Avoid exact coordinates and directly identifying fields in general-purpose logs unless necessary, authorized and protected. Prefer an incident/correlation ID and keep operational record details in the approved system. |
+| Dashboard | Client errors may appear in the browser console; host/server logging depends on deployment | Ensure production errors do not expose tokens, personal records or location details to unauthorized users. |
 
-## Alert Monitoring
-When an SOS is triggered, the Node.js server immediately logs the event and inserts it into the `distressed_fisher_alerts` table. The Web Dashboard polls the FastAPI backend, which highlights the active alert on the map in red, ensuring operators do not miss it.
+## Safe logging requirements
+
+- Never log passwords, private keys, full authentication tokens, one-time codes in production, or complete request bodies containing personal data.
+
+- Minimize fisher identifiers and precise location data in application and monitoring logs. Where event correlation is needed, prefer a non-sensitive incident identifier.
+
+- Restrict log access to personnel with an operational need. Keep access auditable and set retention through the organization's approved data-protection policy.
+
+- Redact logs before sharing them in a ticket, pull request, chat or public issue. Avoid screenshots containing phone numbers or map coordinates.
+
+- Treat logs as evidence during a security or SOS incident: preserve relevant records, record timestamps, and do not edit or delete them as a troubleshooting shortcut.
+
+## Operational monitoring
+
+The deployment documentation recommends watching service uptime, HTTP 5xx rates and response times, database capacity/connections/backup success, and build or deployment failures. The monitoring platform, alert recipients and retention periods are not identified in the supplied project archive; document the actual tools and responsible contacts in the deployment runbook before relying on automated alerting.
+
+For an active SOS, a missing dashboard update, stale location, failed SMS or service-health alert must be treated as a possible service failure—not proof that no emergency exists. Operators should use the approved human coordination fallback in [Failure Handling and Incident Response](./failure-handling.md).
+
+## Verification checklist
+
+Before a release or operational trial, confirm:
+
+- [ ] Production logging does not expose passwords, OTPs, bearer tokens or private keys.
+
+- [ ] Location and identity fields are minimized, access-controlled and retained only as approved.
+
+- [ ] Owners can locate relevant logs and know the retention and escalation process.
+
+- [ ] Health checks and monitoring distinguish current, stale and missing location data.
+
+- [ ] A human fallback remains available if monitoring, dashboard or messaging fails.
