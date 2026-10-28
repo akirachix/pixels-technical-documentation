@@ -16,6 +16,9 @@ MvuviGo stores its application data in **PostgreSQL**. For local development, th
 - [Entity relationship diagram](./er-diagram.md): how the tables connect.
 
 - [Key entities](./key-entities.md): what each table stores and how an alert moves through them.
+- [Constraints](./constraints.md): keys, unique rules, required columns and allowed values.
+- [Migrations](./migrations.md): how the schema is versioned and changed with Alembic.
+- [Seed data](./seed-data.md): the data a fresh database needs and how it is loaded.
 
 - [Constraints](./constraints.md): keys, unique rules, required columns and allowed values.
 
